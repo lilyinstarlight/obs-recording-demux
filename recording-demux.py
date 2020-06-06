@@ -72,6 +72,8 @@ def check_children():
     for child in children.copy():
         if child.poll() is not None:
             children.remove(child)
+            if child.returncode != 0:
+                print(f'ERROR: Subprocess exited with code {child.returncode}: {child.args}')
 
 
 def stop_recording_action(event):
