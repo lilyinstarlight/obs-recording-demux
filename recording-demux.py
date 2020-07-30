@@ -24,7 +24,7 @@ children = []
 
 
 def script_description():
-    return '<b>Recording Demultiplexer</b><hr/>Demultiplex all tracks in recording outputs when recordings are made. This can be useful if you are recording multiple audio streams that would be preferred in separate files.<br/><br/>Requires "Standard" recording output type. "Custom Output (FFmpeg)" will not work.<br/><br/>Made by Lily Foster &lt;fkmclane@gmail.com&gt;'
+    return '<b>Recording Demultiplexer</b><hr/>Demultiplex all tracks in recording outputs when recordings are made. This can be useful if you are recording multiple audio streams that would be preferred in separate files.<br/><br/>Requires "Standard" recording output type. "Custom Output (FFmpeg)" will not work.<br/><br/>Made by Lily Foster &lt;lily@lily.flowers&gt;'
 
 
 def script_load(settings_):
