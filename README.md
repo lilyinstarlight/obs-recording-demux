@@ -1,6 +1,6 @@
 # OBS Studio Recording Demultiplexer
 
-A script for OBS studio to separate out tracks in recordings automatically.
+A script for OBS Studio to separate out tracks in recordings automatically.
 
 
 ## General Script Setup
