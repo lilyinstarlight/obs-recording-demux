@@ -94,10 +94,10 @@ def stop_recording_action(event):
 
 
 def demux(infile):
-    input = ffmpeg.input(infile)
-    outputs = []
+    ffinput = ffmpeg.input(infile)
+    ffoutputs = []
 
     for idx, stream in enumerate(ffmpeg.probe(infile, cmd=obs.obs_data_get_string(settings, 'cmd_ffprobe'))['streams']):
-        outputs.append(ffmpeg.output(input[str(idx)], f'{infile.rsplit(".", 1)[0]}.{idx}.{formats[stream["codec_type"]]}', **codec_args[stream['codec_type']]))
+        ffoutputs.append(ffmpeg.output(ffinput[str(idx)], f'{infile.rsplit(".", 1)[0]}.{idx}.{formats[stream["codec_type"]]}', **codec_args[stream['codec_type']]))
 
-    return ffmpeg.run_async(ffmpeg.merge_outputs(*outputs), cmd=obs.obs_data_get_string(settings, 'cmd_ffmpeg'), quiet=True, overwrite_output=True)
+    return ffmpeg.run_async(ffmpeg.merge_outputs(*ffoutputs), cmd=obs.obs_data_get_string(settings, 'cmd_ffmpeg'), quiet=True, overwrite_output=True)
