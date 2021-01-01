@@ -10,7 +10,7 @@ To setup [OBS Studio](https://obsproject.com/) for Python scripts, you must have
 
 ## Recording Demux Setup
 
-The recording demultiplexer has a requirement that FFmpeg is available either adjacent to the script file or in the system PATH. Static builds of FFmpeg are available from https://ffmpeg.zeranoe.com/builds/ and to use these builds, place the `ffmpeg` and `ffprobe` files from the `bin` folder into the same folder as the script. Additionally, the ffmpeg-python package from PyPI must be installed in the Python path. To install this in Windows, open a PowerShell or CMD command prompt and run the command `%LOCALAPPDATA%\Programs\Python\Python36\Scripts\pip.exe install -U ffmpeg-python`.
+The recording demultiplexer has a requirement that FFmpeg is available either adjacent to the script file or in the system PATH. Static builds of FFmpeg are available from https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip and to use these builds, place the `ffmpeg` and `ffprobe` files from the `bin` folder into the same folder as the script. Additionally, the ffmpeg-python package from PyPI must be installed in the Python path. To install this in Windows, open a PowerShell or CMD command prompt and run the command `%LOCALAPPDATA%\Programs\Python\Python36\Scripts\pip.exe install -U ffmpeg-python`.
 
 
 ## Usage
