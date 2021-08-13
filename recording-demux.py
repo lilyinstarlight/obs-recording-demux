@@ -24,7 +24,7 @@ children = []
 
 
 def script_description():
-    return '<b>Recording Demultiplexer</b><hr/>Demultiplex all tracks in recording outputs when recordings are made. This can be useful if you are recording multiple audio streams that would be preferred in separate files.<br/><br/>Requires "Standard" recording output type. "Custom Output (FFmpeg)" will not work.<br/><br/>Made by Lily Foster &lt;lily@lily.flowers&gt;'
+    return '<b>Recording Demultiplexer</b><hr/>Demultiplex all tracks in recording outputs when recordings are made. This can be useful if you are recording multiple audio or video streams that would be preferred in separate files.<br/><br/>Requires "Standard" recording output type. "Custom Output (FFmpeg)" will not work.<br/><br/>Made by Lily Foster &lt;lily@lily.flowers&gt;'
 
 
 def script_load(settings_):
@@ -69,11 +69,16 @@ def script_defaults(settings):
 
 
 def check_children():
-    for child in children.copy():
+    reaped = []
+    for child in children:
         if child.poll() is not None:
-            children.remove(child)
+            reaped.append(child)
+
             if child.returncode != 0:
                 print(f'ERROR: Subprocess exited with code {child.returncode}: {child.args}')
+
+    if reaped:
+        children[:] = (child for child in children if child not in reaped)
 
 
 def stop_recording_action(event):
